@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>K. Neha Gayathri | Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        nav .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        
+        nav a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #667eea;
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            border-radius: 50%;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero .tagline {
+            font-size: 1.5rem;
+            color: #94a3b8;
+            margin-bottom: 2rem;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 0.75rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            border: 2px solid #667eea;
+            color: #667eea;
+        }
+        
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+        
+        /* Section Styling */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+        }
+        
+        .section-header .subtitle {
+            font-size: 1.1rem;
+            color: #94a3b8;
+        }
+        
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .skill-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #f1f5f9;
+        }
+        
+        .skill-list {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+        
+        /* Projects */
+        .projects-container {
+            display: grid;
+            gap: 3rem;
+        }
+        
+        .project {
+            background: #1e293b;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.2);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            color: white;
+        }
+        
+        .project-header h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-meta {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .project-content {
+            padding: 2rem;
+        }
+        
+        .project-description {
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .project-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .project-features li {
+            padding: 0.5rem 0;
+            color: #94a3b8;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .project-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .tech-tag {
+            background: rgba(102, 126, 234, 0.1);
+            color: #667eea;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        /* Project Images */
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .project-image {
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s;
+        }
+        
+        .project-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .image-label {
+            background: #0f172a;
+            padding: 0.75rem;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Certifications */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .cert-card {
+            background: #1e293b;
+            padding: 1.5rem;
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s;
+        }
+        
+        .cert-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.2);
+        }
+        
+        .cert-card h4 {
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cert-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background: #1e293b;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s;
+        }
+        
+        .contact-item:hover {
+            border-color: #667eea;
+            transform: translateY(-5px);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item h4 {
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-item a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0f172a;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        footer p {
+            color: #64748b;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .tagline {
+                font-size: 1.2rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .project-images {
+                grid-template-columns: 1fr;
+            }
+            
+            section {
+                padding: 3rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-container">
+        <div class="logo">KNG</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#certifications">Certifications</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Hi, I'm Neha Gayathri 👋</h1>
+        <p class="tagline">B.Tech CSE Student | Full-Stack Developer | AI Enthusiast</p>
+        <p class="description">
+            Passionate computer science student with hands-on experience in building real-world applications.
+            I specialize in creating intuitive web solutions and AI-powered tools that solve meaningful problems.
+            Currently exploring the intersection of web development and artificial intelligence.
+        </p>
+        <div class="cta-buttons">
+            <a href="#projects" class="btn btn-primary">View My Work</a>
+            <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+        </div>
+    </div>
+</section>
+
+<section id="skills">
+    <div class="section-header">
+        <h2>What I Bring to the Table</h2>
+        <p class="subtitle">A diverse skill set combining technical expertise with creative problem-solving</p>
+    </div>
+    
+    <div class="skills-grid">
+        <div class="skill-card">
+            <div class="skill-icon">💻</div>
+            <h3>Programming</h3>
+            <p class="skill-list">C, Java, Python<br>Data Structures & Algorithms<br>Object-Oriented Programming</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">🎨</div>
+            <h3>Frontend Development</h3>
+            <p class="skill-list">HTML, CSS, JavaScript<br>React.js Framework<br>Responsive Web Design</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">⚙️</div>
+            <h3>Backend Development</h3>
+            <p class="skill-list">Node.js & Express<br>PHP Server-Side<br>RESTful API Design</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">🗄️</div>
+            <h3>Database Management</h3>
+            <p class="skill-list">MySQL & SQL Queries<br>Database Design<br>Data Integration</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">🤖</div>
+            <h3>AI & ML Concepts</h3>
+            <p class="skill-list">Machine Learning Basics<br>Natural Language Processing<br>AI Application Development</p>
+        </div>
+        
+        <div class="skill-card">
+            <div class="skill-icon">🔒</div>
+            <h3>DevOps & Security</h3>
+            <p class="skill-list">DevOps Fundamentals<br>Zero Trust Security<br>Cybersecurity Principles</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <div class="section-header">
+        <h2>Featured Projects</h2>
+        <p class="subtitle">Real-world applications built with passion and purpose</p>
+    </div>
+    
+    <div class="projects-container">
+        <!-- Luminar AI Project -->
+        <div class="project">
+            <div class="project-header">
+                <h3>🧠 Luminar AI</h3>
+                <p class="project-meta">Student Learning Platform | UI/UX Design</p>
+            </div>
+            <div class="project-content">
+                <p class="project-description">
+                    Designed a clean, modern interface concept for a student learning platform. Focused on intuitive 
+                    onboarding, clear typography, and mobile-first layout to make it easy for students to log in, 
+                    track progress, and access resources.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">UI/UX Design</span>
+                    <span class="tech-tag">Figma</span>
+                    <span class="tech-tag">Mobile-First</span>
+                    <span class="tech-tag">Typography</span>
+                    <span class="tech-tag">User Experience</span>
+                </div>
+                
+                <div class="project-images">
+                    <div class="project-image">
+                        <img src="luminar_ai.png" alt="Luminar AI Dashboard">
+                        <div class="image-label">AI Study Dashboard - Personalized Learning Interface</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vintage Vault Project -->
+        <div class="project">
+            <div class="project-header">
+                <h3>🛒 Vintage Vault</h3>
+                <p class="project-meta">Second-Hand Online Marketplace | Team of 4</p>
+            </div>
+            <div class="project-content">
+                <p class="project-description">
+                    A comprehensive e-commerce platform enabling users to buy and sell second-hand items safely 
+                    and efficiently. Built as a collaborative research project, this marketplace features secure 
+                    authentication, real-time product listings, and an intuitive user interface designed to 
+                    connect buyers and sellers seamlessly.
+                </p>
+                
+                <div class="tech-stack">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">CSS3</span>
+                </div>
+                
+                <div class="project-images">
+                    <div class="project-image">
+                        <img src="homepage.png" alt="Marketplace Home Page">
+                        <div class="image-label">Home Page - Welcome Interface</div>
+                    </div>
+                    <div class="project-image">
+                        <img src="buyers_page.png" alt="Product Listing Page">
+                        <div class="image-label">Product Listing - Browse & Search</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="certifications">
+    <div class="section-header">
+        <h2>Certifications & Learning</h2>
+        <p class="subtitle">Continuous growth through professional development</p>
+    </div>
+    
+    <div class="cert-grid">
+        <div class="cert-card">
+            <h4>Zero Trust Cloud Security Virtual Internship</h4>
+            <p>EduSkills | Advanced cloud security concepts and implementation</p>
+        </div>
+        
+        <div class="cert-card">
+            <h4>Cybersecurity Virtual Internship</h4>
+            <p>EduSkills | Comprehensive cybersecurity principles and practices</p>
+        </div>
+        
+        <div class="cert-card">
+            <h4>DevOps Fundamentals</h4>
+            <p>Infosys Springboard | CI/CD pipelines and modern development practices</p>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-header">
+        <h2>Let's Connect</h2>
+        <p class="subtitle">I'm always open to discussing new opportunities and collaborations</p>
+    </div>
+    
+    <div class="contact-grid">
+        <div class="contact-item">
+            <div class="contact-icon">📧</div>
+            <h4>Email</h4>
+            <a href="mailto:nehakasturi10@gmail.com">nehakasturi10@gmail.com</a>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-icon">📱</div>
+            <h4>Phone</h4>
+            <p style="color: #94a3b8;">6309541250</p>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-icon">🐙</div>
+            <h4>GitHub</h4>
+            <a href="https://github.com/NehaGayathri1006" style="color: #94a3b8;">nehakasturi</a>
+        </div>
+        
+        <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <h4>LinkedIn</h4>
+            <a href="https://www.linkedin.com/in/neha-gayathri" style="color: #94a3b8;">Neha Kasturi</a>
+   
